@@ -1,0 +1,855 @@
+
+  // 第一分類: 公司
+// A: 未央公司 B: 木星工業 C: 諾瑪運輸 D: 安東尼奧斯
+
+// 第二分類: 戰略性能
+// A: 火力出眾 B: 持續作戰 C: 戰略與支援 D: 戰機與護航艇
+
+// 第三分類: 戰術性能
+// A: 投射武器 B: 直射武器
+// 機率
+// 戰鬥機: 15.6% 護航艇: 13.0% 巡航艦: 24.7%
+// 驅逐: 19.5% 巡洋: 23.6% 戰巡: 2.1% 支援: 0.5% 航母: 1%
+
+window.itemsData = [
+  {
+    "name": "AT021 🄰",
+    "category1": ["A"],
+    "category2": ["D"],
+    "category3": ["B"],
+    "image": "images/s_attacker_h_001_1.png",
+    "weight": 156
+  },
+  {
+    "name": "AT021 🄱",
+    "category1": ["A"],
+    "category2": ["D", "C", "B"],
+    "category3": ["B"],
+    "image": "images/s_attacker_h_001_2.png",
+    "weight": 156
+  },
+  {
+    "name": "AT021 🄲",
+    "category1": ["A"],
+    "category2": ["D", "A"],
+    "category3": ["A"],
+    "image": "images/s_attacker_h_001_3.png",
+    "weight": 156
+  },
+  {
+    "name": "新大地",
+    "category1": ["B"],
+    "category2": ["C", "D"],
+    "category3": ["B"],
+    "image": "images/a_attacker_h_001_1.png",
+    "weight": 156
+  },
+  {
+    "name": "平衡安德森",
+    "category1": ["D"],
+    "category2": ["B", "D"],
+    "category3": ["B"],
+    "image": "images/c_scout_l_001_1.png",
+    "weight": 156
+  },
+  {
+    "name": "BR050 🄰",
+    "category1": ["A"],
+    "category2": ["D", "A"],
+    "category3": ["A"],
+    "image": "images/s_bomber_m_001_1.png",
+    "weight": 156
+  },
+  {
+    "name": "BR050 🄱",
+    "category1": ["A"],
+    "category2": ["D", "B"],
+    "category3": ["A"],
+    "image": "images/s_bomber_m_001_2.png",
+    "weight": 156
+  },
+  {
+    "name": "BR050 🄲",
+    "category1": ["A"],
+    "category2": ["D", "A"],
+    "category3": ["A"],
+    "image": "images/s_bomber_m_001_3.png",
+    "weight": 156
+  },
+  {
+    "name": "牛蛙",
+    "category1": ["C"],
+    "category2": ["A", "D"],
+    "category3": ["A"],
+    "image": "images/b_bomber_m_001_1.png",
+    "weight": 156
+  },
+  {
+    "name": "海氏追隨者",
+    "category1": ["Hayreddin Clan"],
+    "category2": ["A", "B", "D"],
+    "category3": ["B"],
+    "image": "images/g_fighter_m_001_1.png",
+    "weight": 156
+  },
+  {
+    "name": "佩刀Aer410",
+    "category1": ["B"],
+    "category2": ["C", "D"],
+    "category3": ["A"],
+    "image": "images/a_attacker_m_001_1.png",
+    "weight": 156
+  },
+  {
+    "name": "密斯特拉",
+    "category1": ["D"],
+    "category2": ["D"],
+    "category3": ["B"],
+    "image": "images/c_fighter_m_002_1.png",
+    "weight": 156
+  },
+  {
+    "name": "沙地龍獸",
+    "category1": ["C"],
+    "category2": ["C", "D"],
+    "category3": ["B"],
+    "image": "images/b_interceptor_l_001_1.png",
+    "weight": 156
+  },
+  {
+    "name": "SC002",
+    "category1": ["A"],
+    "category2": ["B", "C", "D"],
+    "category3": ["B"],
+    "image": "images/s_scout_l_001_1.png",
+    "weight": 156
+  },
+  {
+    "name": "孢子A404",
+    "category1": ["B"],
+    "category2": ["C", "D"],
+    "category3": ["B"],
+    "image": "images/a_fighter_l_001_1.png",
+    "weight": 156
+  },
+  {
+    "name": "刺鰩",
+    "category1": ["B"],
+    "category2": ["A", "B", "D"],
+    "category3": ["A"],
+    "image": "images/a_bomber_h_001_1.png",
+    "weight": 156
+  },
+  {
+    "name": "林鴞A100",
+    "category1": ["C"],
+    "category2": ["D"],
+    "category3": ["B"],
+    "image": "images/b_attacker_h_001_1.png",
+    "weight": 156
+  },
+  {
+    "name": "維塔斯A021",
+    "category1": ["D"],
+    "category2": ["A", "D"],
+    "category3": ["A"],
+    "image": "images/c_attacker_h_001_1.png",
+    "weight": 156
+  },
+  {
+    "name": "維塔斯B010",
+    "category1": ["D"],
+    "category2": ["A", "B", "D"],
+    "category3": ["B"],
+    "image": "images/c_bomber_m_001_1.png",
+    "weight": 156
+  },//護航挺
+  {
+    "name": "蜂巢防衛者",
+    "category1": ["D"],
+    "category2": ["A", "D"],
+    "category3": ["A"],
+    "image": "images/c_corvette_h_001_1.png",
+    "weight": 130
+  },
+  {
+    "name": "CV-II003",
+    "category1": ["A"],
+    "category2": ["C", "D"],
+    "category3": ["B"],
+    "image": "images/s_corvette_x_001_1.png",
+    "weight": 130
+  },
+  {
+    "name": "CV-M011 🄰",
+    "category1": ["A"],
+    "category2": ["A", "B", "C", "D"],
+    "category3": ["A"],
+    "image": "images/s_corvette_m_001_1.png",
+    "weight": 130
+  },
+  {
+    "name": "CV-M011 🄱",
+    "category1": ["A"],
+    "category2": ["D"],
+    "category3": ["B"],
+    "image": "images/s_corvette_m_001_2.png",
+    "weight": 130
+  },
+  {
+    "name": "CV-M011 🄲",
+    "category1": ["A"],
+    "category2": ["D"],
+    "category3": ["A"],
+    "image": "images/s_corvette_m_001_3.png",
+    "weight": 130
+  },
+  {
+    "name": "CV-T800",
+    "category1": ["A"],
+    "category2": ["A", "C", "D"],
+    "category3": ["B"],
+    "image": "images/s_pulse_l_001_1.png",
+    "weight": 130
+  },
+  {
+    "name": "海爾波普 🄰",
+    "category1": ["B"],
+    "category2": ["D", "C"],
+    "image": "images/a_corvette_h_001_1.png",
+    "weight": 130
+  },
+  {
+    "name": "海爾波普 🄱",
+    "category1": ["B"],
+    "category2": ["D", "C"],
+    "image": "images/a_corvette_h_001_2.png",
+    "weight": 130
+  },
+  {
+    "name": "星雲追逐者 🄰",
+    "category1": ["D"],
+    "category2": ["A", "D"],
+    "category3": ["B"],
+    "image": "images/c_corvette_m_001_1.png",
+    "weight": 130
+  },
+  {
+    "name": "星雲追逐者 🄱",
+    "category1": ["D"],
+    "category2": ["A", "D"],
+    "category3": ["B"],
+    "image": "images/c_corvette_m_001_2.png",
+    "weight": 130
+  },
+  {
+    "name": "RB7-13",
+    "category1": ["C"],
+    "category2": ["B", "C", "D"],
+    "category3": ["A"],
+    "image": "images/b_corvette_m_001_1.png",
+    "weight": 130
+  },
+  {
+    "name": "列維9號",
+    "category1": ["B"],
+    "category2": ["A", "B", "D"],
+    "category3": ["A"],
+    "image": "images/a_corvette_m_001_1.png",
+    "weight": 130
+  },
+  {
+    "name": "鰩級",
+    "category1": ["C"],
+    "category2": ["D"],
+    "category3": ["B"],
+    "image": "images/b_corvette_l_001_1.png",
+    "weight": 130
+  },
+  {
+    "name": "坦普爾一號 🄰",
+    "category1": ["B"],
+    "category2": ["C", "D"],
+    "image": "images/a_boat_l_001_1.png",
+    "weight": 130
+  },
+  {
+    "name": "坦普爾一號 🄱",
+    "category1": ["B"],
+    "category2": ["C", "D"],
+    "image": "images/a_boat_l_001_2.png",
+    "weight": 130
+  },
+  {
+    "name": "虛靈",
+    "category1": ["D"],
+    "category2": ["A", "B", "D"],
+    "category3": ["A"],
+    "image": "images/c_corvette_l_001_1.png",
+    "weight": 130
+  },//巡航艦
+  {
+    "name": "卡利萊恩 🄰",
+    "category1": ["D"],
+    "category2": ["B", "C"],
+    "category3": ["B"],
+    "image": "images/c_frigate_l_001_1.png",
+    "weight": 247
+  },
+  {
+    "name": "卡利萊恩 🄱",
+    "category1": ["D"],
+    "category2": ["C"],
+    "category3": ["B"],
+    "image": "images/c_frigate_l_001_2.png",
+    "weight": 247
+  },
+  {
+    "name": "卡利萊恩 🄲",
+    "category1": ["D"],
+    "category2": ["B"],
+    "category3": ["B"],
+    "image": "images/c_frigate_l_001_3.png",
+    "weight": 247
+  },
+  {
+    "name": "FG300 🄰",
+    "category1": ["A"],
+    "category2": ["C"],
+    "category3": ["B"],
+    "image": "images/s_frigate_m_001_1.png",
+    "weight": 247
+  },
+  {
+    "name": "FG300 🄱",
+    "category1": ["A"],
+    "category2": ["B"],
+    "category3": ["B"],
+    "image": "images/s_frigate_m_001_2.png",
+    "weight": 247
+  },
+  {
+    "name": "FG300 🄲",
+    "category1": ["A"],
+    "category2": ["C"],
+    "category3": ["B"],
+    "image": "images/s_frigate_m_001_3.png",
+    "weight": 247
+  },
+  {
+    "name": "狼蜥級 🄰",
+    "category1": ["C"],
+    "image": "images/b_frigate_l_003_1.png",
+    "weight": 247
+  },
+  {
+    "name": "狼蜥級 🄱",
+    "category1": ["C"],
+    "category2": ["A"],
+    "image": "images/b_frigate_l_003_2.png",
+    "weight": 247
+  },
+  {
+    "name": "狼蜥級 🄲",
+    "category1": ["C"],
+    "category2": ["A"],
+    "image": "images/b_frigate_l_003_3.png",
+    "weight": 247
+  },
+  {
+    "name": "雨海級 🄰",
+    "category1": ["B"],
+    "category2": ["A"],
+    "category3": ["B"],
+    "image": "images/a_frigate_m_003_1.png",
+    "weight": 247
+  },
+  {
+    "name": "雨海級 🄱",
+    "category1": ["B"],
+    "category2": ["A"],
+    "category3": ["B"],
+    "image": "images/a_frigate_m_003_2.png",
+    "weight": 247
+  },
+  {
+    "name": "雲海級 🄰",
+    "category1": ["B"],
+    "category2": ["A"],
+    "image": "images/a_frigate_l_001_1.png",
+    "weight": 247
+  },
+  {
+    "name": "雲海級 🄱",
+    "category1": ["B"],
+    "image": "images/a_frigate_l_001_2.png",
+    "weight": 247
+  },
+  {
+    "name": "澄海級 🄰",
+    "category1": ["B"],
+    "category2": ["A", "B"],
+    "category3": ["A"],
+    "image": "images/a_frigate_h_001_1.png",
+    "weight": 247
+  },
+  {
+    "name": "澄海級 🄱",
+    "category1": ["B"],
+    "category2": ["B"],
+    "category3": ["A"],
+    "image": "images/a_frigate_h_001_2.png",
+    "weight": 247
+  },
+  {
+    "name": "澄海級 🄲",
+    "category1": ["B"],
+    "category2": ["B"],
+    "category3": ["A"],
+    "image": "images/a_frigate_h_001_3.png",
+    "weight": 247
+  },
+  {
+    "name": "靜海級 🄰",
+    "category1": ["B"],
+    "category2": ["C"],
+    "category3": ["A"],
+    "image": "images/a_frigate_m_002_1.png",
+    "weight": 247
+  },
+  {
+    "name": "靜海級 🄱",
+    "category1": ["B"],
+    "category3": ["B"],
+    "image": "images/a_frigate_m_002_2.png",
+    "weight": 247
+  },
+  {
+    "name": "靜海級 🄲",
+    "category1": ["B"],
+    "category2": ["C"],
+    "category3": ["A"],
+    "image": "images/a_frigate_m_002_3.png",
+    "weight": 247
+  },
+  {
+    "name": "諾瑪M470 🄰",
+    "category1": ["C"],
+    "category2": ["A"],
+    "image": "images/b_frigate_h_002_1.png",
+    "weight": 247
+  },
+  {
+    "name": "諾瑪M470 🄱",
+    "category1": ["C"],
+    "category2": ["C"],
+    "image": "images/b_frigate_h_002_2.png",
+    "weight": 247
+  },
+  {
+    "name": "諾瑪M470 🄲",
+    "category1": ["C"],
+    "category2": ["C"],
+    "image": "images/b_frigate_h_002_3.png",
+    "weight": 247
+  },
+  {
+    "name": "雷里亞特級 🄰",
+    "category1": ["D"],
+    "category2": ["A"],
+    "category3": ["A"],
+    "image": "images/c_frigate_l_002_1.png",
+    "weight": 247
+  },
+  {
+    "name": "雷里亞特級 🄱",
+    "category1": ["D"],
+    "category2": ["A"],
+    "category3": ["A"],
+    "image": "images/c_frigate_l_002_2.png",
+    "weight": 247
+  },
+  {
+    "name": "雷里亞特級 🄲",
+    "category1": ["D"],
+    "category2": ["A", "B"],
+    "category3": ["A"],
+    "image": "images/c_frigate_l_002_3.png",
+    "weight": 247
+  },
+  {
+    "name": "紅寶石 🄰",
+    "category1": ["C"],
+    "category2": ["A"],
+    "category3": ["B"],
+    "image": "images/b_frigate_h_001_1.png",
+    "weight": 247
+  },
+  {
+    "name": "紅寶石 🄱",
+    "category1": ["C"],
+    "category2": ["A"],
+    "category3": ["B"],
+    "image": "images/b_frigate_h_001_2.png",
+    "weight": 247
+  },
+  {
+    "name": "紅寶石 🄲",
+    "category1": ["C"],
+    "category2": ["B"],
+    "category3": ["A"],
+    "image": "images/b_frigate_h_001_3.png",
+    "weight": 247
+  },
+  {
+    "name": "刺水母 🄰",
+    "category1": ["C"],
+    "category2": ["A"],
+    "image": "images/b_frigate_m_001_1.png",
+    "weight": 247
+  },
+  {
+    "name": "刺水母 🄱",
+    "category1": ["C"],
+    "category2": ["C"],
+    "image": "images/b_frigate_m_001_2.png",
+    "weight": 247
+  },
+  //舊檔案
+  {//航母
+    "name": "CV3000",
+    "category1": ["A"],
+    "category2": ["C"],
+    "image": "images/object1.png",
+    "weight": 10
+  },
+  {
+    "name": "太陽鯨",
+    "category1": ["C"],
+    "category2": ["C"],
+    "image": "",
+    "weight": 10
+  },
+  {
+    "name": "永恆蒼芎",
+    "category1": ["B"],
+    "category2": ["A","C"],
+    "image": "",
+    "weight": 10
+  },
+  {
+    "name": "南十字星元帥",
+    "category1": ["D"],
+    "category2": ["A","C"],
+    "category3": ["B"],
+    "image": "",
+    "weight": 10
+  },
+  {//支援艦
+    "name": "埃迪卡拉",
+    "category1": ["C"],
+    "category2": ["A","C"],
+    "image": "",
+    "weight": 5
+  },
+  {
+    "name": "FSV830",
+    "category1": ["A"],
+    "category2": ["B","C"],
+    "image": "",
+    "weight": 5
+  },
+  {//戰巡
+    "name": "新君士坦丁大帝",
+    "category1": ["D"],
+    "category2": ["A"],
+    "category3": ["B"],
+    "image": "",
+    "weight": 21
+  },
+  {
+    "name": "永恆風暴",
+    "category1": ["B"],
+    "category2": ["A"],
+    "category3": ["B"],
+    "image": "",
+    "weight": 21
+  },
+  {
+    "name": "普魯圖斯之盾",
+    "category1": ["C"],
+    "category2": ["A","B"],
+    "category3": ["B"],
+    "image": "",
+    "weight": 21
+  },
+  {
+    "name": "烏拉諾斯之矛",
+    "category1": ["B"],
+    "category2": ["A","C"],
+    "category3": ["B"],
+    "image": "",
+    "weight": 21
+  },
+  {
+    "name": "ST59",
+    "category1": ["A"],
+    "category2": ["B","C"],
+    "category3": ["B"],
+    "image": "",
+    "weight": 21
+  },
+  {
+    "name": "雷火之星",//雷火之星
+    "category1": ["Thunderbolt Group"],
+    "category2": ["A","C"],
+    "category3": ["B"],
+    "image": "",
+    "weight": 21
+  },
+  {//巡洋艦
+    "name": "卡利斯托A",
+    "category1": ["B"],
+    "category2": ["A"],
+    "category3": ["A"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "卡利斯托B",
+    "category1": ["B"],
+    "category3": ["A"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "卡利斯托C",
+    "category1": ["B"],
+    "category3": ["A"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "遊騎兵A",
+    "category1": ["D"],
+    "category2": ["A"],
+    "category3": ["B"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "遊騎兵B",
+    "category1": ["D"],
+    "category2": ["A"],
+    "category3": ["B"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "狩獵者A",
+    "category1": ["D"],
+    "category2": ["C"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "狩獵者B",
+    "category1": ["D"],
+    "category2": ["C"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "狩獵者C",
+    "category1": ["D"],
+    "category2": ["C"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "光錐A",
+    "category1": ["C"],
+    "category3": ["A"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "光錐B",
+    "category1": ["C"],
+    "category2": ["C"],
+    "category3": ["A"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "光錐C",
+    "category1": ["C"],
+    "category2": ["A"],
+    "category3": ["A"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "KCCPV2.0A",
+    "category1": ["A"],
+    "category2": ["A", "C"],
+    "category3": ["A"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "KCCPV2.0B",
+    "category1": ["A"],
+    "category2": ["A"],
+    "category3": ["B"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "KCCPV2.0C",
+    "category1": ["A"],
+    "category3": ["B"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "KCCPV2.0D",
+    "category1": ["A"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "獵兵A",
+    "category1": ["D"],
+    "category2": ["C"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "獵兵B",
+    "category1": ["D"],
+    "category2": ["C"],
+    "category3": ["B"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "伊俄A",
+    "category1": ["B"],
+    "category2": ["A", "B"],
+    "category3": ["B"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "伊俄B",
+    "category1": ["B"],
+    "category2": ["A", "B"],
+    "category3": ["B"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "伊俄C",
+    "category1": ["B"],
+    "category2": ["A", "B"],
+    "category3": ["B"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "康納馬拉混沌A",
+    "category1": ["B"],
+    "category2": ["C"],
+    "category3": ["B"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "康納馬拉餛飩B",
+    "category1": ["B"],
+    "category2": ["C"],
+    "category3": ["B"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "奇美拉A",
+    "category1": ["C"],
+    "category2": ["A", "B"],
+    "category3": ["B"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "奇美拉B",
+    "category1": ["C"],
+    "category2": ["A", "B"],
+    "category3": ["B"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "奇美拉C",
+    "category1": ["C"],
+    "category2": ["B"],
+    "category3": ["B"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "CAS066A",
+    "category1": ["A"],
+    "category2": ["A", "B"],
+    "category3": ["A"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "CAS066B",
+    "category1": ["A"],
+    "category2": ["A"],
+    "category3": ["B"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "CAS066C",
+    "category1": ["A"],
+    "image": "",
+    "weight": 236
+  },
+  {
+    "name": "CAS066D",
+    "category1": ["A"],
+    "category2": ["C"],
+    "image": "",
+    "weight": 236
+  },//驅逐艦
+  { name: "AC721A", category1: ["A"], category2: ["C"], category3: ["B"], weight: 195 },
+  { name: "AC721B", category1: ["A"], category2: ["C"], category3: ["A"], weight: 195 },
+  { name: "AC721D", category1: ["A"], category2: ["C"], weight: 195 },
+  { name: "亞達伯拉A", category1: ["C"], category2: ["A","C"], category3: ["B"], weight: 195 },
+  { name: "亞達伯拉B", category1: ["C"], category2: ["A","C"], category3: ["B"], weight: 195 },
+  { name: "穀神星A", category1: ["B"], category2: ["C"], weight: 195 },
+  { name: "穀神星B", category1: ["B"], category2: ["C"], weight: 195 },
+  { name: "穀神星C", category1: ["B"], category2: ["C"], weight: 195 },
+  { name: "鬩神星A", category1: ["B"], category2: ["C"], category3: ["B"], weight: 195 },
+  { name: "鬩神星B", category1: ["B"], category2: ["A","B"], category3: ["B"], weight: 195 },
+  { name: "鬩神星C", category1: ["B"], category2: ["B"], category3: ["B"], weight: 195 },     
+  { name: "衛士A", category1: ["D"], category3: ["A"], weight: 195 },
+  { name: "衛士B", category1: ["D"], category2: ["C"], category3: ["A"], weight: 195 },
+  { name: "衛士C", category1: ["D"], category2: ["A","B"], category3: ["B"], weight: 195 },
+  { name: "創神星A", category1: ["B"], category2: ["A"], category3: ["B"], weight: 195 },
+  { name: "創神星B", category1: ["B"], category2: ["A"], category3: ["B"], weight: 195 },
+  { name: "鬥牛A", category1: ["C"], category2: ["A","B"], category3: ["B"], weight: 195 },
+  { name: "鬥牛B", category1: ["C"], category2: ["A","B"], category3: ["B"], weight: 195 },
+  { name: "鬥牛C", category1: ["C"], category2: ["B","C"], category3: ["B"], weight: 195 },
+  { name: "苔原A", category1: ["C"], category2: ["C"], weight: 195 },
+  { name: "苔原B", category1: ["C"], category2: ["C"], weight: 195 },
+  { name: "槍騎兵A", category1: ["D"], category2: ["A"], category3: ["A"], weight: 195 },
+  { name: "槍騎兵B", category1: ["D"], category2: ["A"], category3: ["A"], weight: 195 },
+  { name: "槍騎兵C", category1: ["D"], category2: ["B","C"], category3: ["A"], weight: 195 },
+  { name: "銀狼星", weight: 0 },
+  
+];
